@@ -1,0 +1,16 @@
+SELECT customers.customer_code, customers.customer_name, products.product_type
+FROM ((transactions
+INNER JOIN Customers ON transactions.customer_code = customers.customer_code)
+INNER JOIN products ON transactions.product_code = products.product_code);
+
+SELECT transactions.order_date,customers.customer_code, customers.customer_name, products.product_type
+FROM ((transactions
+INNER JOIN Customers ON transactions.customer_code = customers.customer_code)
+INNER JOIN products ON transactions.product_code = products.product_code);
+
+SELECT transactions.order_date, customers.customer_name, customers.customer_type, products.product_type, market.market_name,
+transactions.currency
+FROM (((transactions
+INNER JOIN Customers ON transactions.customer_code = customers.customer_code)
+INNER JOIN products ON transactions.product_code = products.product_code)
+INNER JOIN market ON transactions.market_code = market.market_code);
